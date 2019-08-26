@@ -42,7 +42,7 @@ print(f'Path = {os.getenv("PATH")}')
 # start process
 os.startfile("c:/windows/system32/notepad.exe")
 
-import psutil
+import psutil # requires INSTALLATION from Settings!!!
 
 # Iterate over all running process
 for proc in psutil.process_iter():
