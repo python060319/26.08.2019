@@ -38,3 +38,27 @@ for dirpath, dirnames, filenames\
 # 3. read input file name from the user - print in which folder it exist, or not exist
 #  *etgar read only part of file name or i.e. *.txt
 # 4. read extension from the user - print all files ending with this extension and their location
+
+print(f'Path = {os.getenv("PATH")}')
+
+d = os.startfile("c:/windows/system32/notepad.exe")
+
+import psutil
+
+# Iterate over all running process
+for proc in psutil.process_iter():
+    try:
+        # Get process name & pid from process object.
+        processName = proc.name()
+        processID = proc.pid
+        print(processName , ' ::: ', processID)
+    except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+        pass
+
+
+# targil:
+# get string of process from user
+# start the process
+# get a string from user
+# kill the process
+
