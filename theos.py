@@ -36,8 +36,11 @@ for dirpath, dirnames, filenames\
         print(f'{d} {size} Bytes')
 
 print(f'Path = {os.getenv("PATH")}')
+# modify env variable
 # os.environ['PATH'] = os.getenv("PATH") + ";c:\python"
-#d = os.startfile("c:/windows/system32/notepad.exe")
+
+# start process
+# os.startfile("c:/windows/system32/notepad.exe")
 
 import psutil
 
@@ -47,20 +50,18 @@ for proc in psutil.process_iter():
         # Get process name & pid from process object.
         processName = proc.name()
         processID = proc.pid
+        # kill a process
         if proc.name() == "notepad.exe":
             proc.kill()
         print(processName , ' ::: ', processID)
     except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
         pass
 
-
-# targil:
-# get string of process from user
-# start the process
-# get a string from user
-# kill the process
-
 import stat
 fileAttr = os.stat('hello.txt')
 # stat.S_IREAD -- read only
+os.chmod('hello.txt', stat.S_IREAD)
+# stat.S_IWRITE -- read and write
 os.chmod('hello.txt', stat.S_IWRITE)
+
+
