@@ -36,11 +36,11 @@ for dirpath, dirnames, filenames\
         print(f'{d} {size} Bytes')
 
 print(f'Path = {os.getenv("PATH")}')
-# modify env variable
+# modify env variable -- watchout!
 # os.environ['PATH'] = os.getenv("PATH") + ";c:\python"
 
 # start process
-# os.startfile("c:/windows/system32/notepad.exe")
+os.startfile("c:/windows/system32/notepad.exe")
 
 import psutil
 
@@ -64,4 +64,7 @@ os.chmod('hello.txt', stat.S_IREAD)
 # stat.S_IWRITE -- read and write
 os.chmod('hello.txt', stat.S_IWRITE)
 
+print(os.path.isfile('hello.txt'))
+print(os.path.isdir('hello.txt'))
+print(os.path.exists('hello.txt'))
 
