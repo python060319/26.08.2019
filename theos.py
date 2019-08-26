@@ -30,7 +30,10 @@ for dirpath, dirnames, filenames\
     for d in dirnames:
         print(f'[{d}]')
     for d in filenames:
-        print(f'{d}')
+        size = os.stat(
+            os.path.join(d1, d)
+        ).st_size
+        print(f'{d} {size} Bytes')
 
 # Targil:
 # 1. add to file print the size of each file
@@ -40,8 +43,8 @@ for dirpath, dirnames, filenames\
 # 4. read extension from the user - print all files ending with this extension and their location
 
 print(f'Path = {os.getenv("PATH")}')
-
-d = os.startfile("c:/windows/system32/notepad.exe")
+# os.environ['PATH'] = os.getenv("PATH") + ";c:\python"
+#d = os.startfile("c:/windows/system32/notepad.exe")
 
 import psutil
 
@@ -51,6 +54,8 @@ for proc in psutil.process_iter():
         # Get process name & pid from process object.
         processName = proc.name()
         processID = proc.pid
+        if proc.name() == "notepad.exe":
+            proc.kill()
         print(processName , ' ::: ', processID)
     except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
         pass
@@ -62,3 +67,7 @@ for proc in psutil.process_iter():
 # get a string from user
 # kill the process
 
+import stat
+fileAttr = os.stat('hello.txt')
+# stat.S_IREAD -- read only
+os.chmod('hello.txt', stat.S_IWRITE)
