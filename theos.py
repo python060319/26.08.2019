@@ -33,7 +33,8 @@ for dirpath, dirnames, filenames\
         print(f'{d}')
 
 # Targil:
-# 1. add to file print the size of each file 
-# 2. add to file print the last modified of each file 
+# 1. add to file print the size of each file
+# 2. add to file print the last modified of each file
 # 3. read input file name from the user - print in which folder it exist, or not exist
+#  *etgar read only part of file name or i.e. *.txt
 # 4. read extension from the user - print all files ending with this extension and their location
